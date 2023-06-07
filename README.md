@@ -1,5 +1,7 @@
 # js1weather
-<!-- Du ska i denna uppgift bygga en väderapp som kan visa upp lite olika värden med hjälp av https://openweathermap.org/api. Openweathermap är ett API som du kan använda för att hämta information om vädret för en viss position.
+<!-- API-key: 31a7151816c0150e0921f976ce9d8af9 
+
+Du ska i denna uppgift bygga en väderapp som kan visa upp lite olika värden med hjälp av https://openweathermap.org/api. Openweathermap är ett API som du kan använda för att hämta information om vädret för en viss position.
 
 Vid hämtning av värden så väljer du själv för vilken position. Du kan exempelvis välja Stockholm, Oslo eller Berlin. Om du vill kan du hämta värden för flera positioner. Appen, eller med andra ord webbsidan, ska bestå av följande:
 

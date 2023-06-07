@@ -1,7 +1,25 @@
-function logWeatherTest() {
-    fetch("https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=39.099724&lon=-94.578331&dt=1643803200&appid=afa7998302266a1d34e7bcfa131689d0")
-    .then((response) => {
-        return response.json()
-    })
-    .then()
+const apiKey = "31a7151816c0150e0921f976ce9d8af9";
+const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+
+
+async function checkWeather(city){
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data);
+
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + " °C";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " m/s";
+
 }
+
+searchBtn.addEventListener("click", ()=>{
+    checkWeather(searchBox.value);
+
+})
+
+
