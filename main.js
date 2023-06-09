@@ -4,6 +4,11 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector (".weather-icon");
 
+// function getWeather() {
+
+
+// }
+
 async function checkWeather(city){
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
@@ -15,13 +20,11 @@ async function checkWeather(city){
 
     var data = await response.json();
 
-
-
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + " °C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
     document.querySelector(".wind").innerHTML = data.wind.speed + " m/s";
-    // document.querySelector(".pressure").innerHTML = data.pressure;
+    document.querySelector(".pressure").innerHTML = data.main.pressure + " hPa";
 
     if (data.weather[0].main == "Clouds") {
       weatherIcon.src = "images/clouds.png";
@@ -48,4 +51,6 @@ searchBtn.addEventListener("click", ()=>{
 
 })
 
-//fortsätt kommentera ut "error" och se om det fixar felet i ins
+
+
+//fortsätt på (html div) "datum" 

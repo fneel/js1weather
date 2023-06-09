@@ -14,7 +14,10 @@
     />
     <script src="main.js" defer></script>
   </head>
+
+
   <body>
+
     <div class="container">
       <div class="search">
         <input type="text" placeholder="Sök efter stad" spellcheck="false" />
@@ -24,39 +27,43 @@
         <p>Stavade du rätt?</p>
       </div>
       <div class="weather">
-        <img src="images/rain.png" class="weather-icon">
+        <img src="images/rain.png" class="weather-icon" />
 
         <h1 class="temp">21°C</h1>
         <h2 class="city">Sök stad</h2>
 
-<!-- details about current weather -->
+        <!-- details about current weather -->
         <div class="details">
-<!--columns containing the details for each type of weather-->
+          <!--columns containing the details for each type of weather-->
           <div class="col">
-            <img src="images/humidity.png">
-
             <div>
-              <p class="humidity">50%</p>
-              <p>Humidity</p>
+            <img src="images/humidity.png" />
+            <p class="humidity">50%</p>
+            <p>Humidity</p>
             </div>
-
           </div>
-
           <div class="col">
-            <img src="images/wind.png">
-
-          <div>
-          <p class="wind">15 m/s</p>
-          <p>Wind Speed</p>
-          </div>
+            <div>
+            <img src="images/wind.png" />
+            <p class="wind">50%</p>
+            <p>Wind</p>
+            </div>
+          </div>          <div class="col">
+            <div>
+            <img src="images/pressure.png" />
+            <p class="pressure">50%</p>
+            <p>Pressure</p>
+            </div>
+          </div>            
+          <!-- <div>
+            <img src="images/pressure.png" />
+            <p class="datum">50%</p>
+            <p>Pressure</p>
+            </div>
+          </div>           -->
 
         </div>
-
       </div>
-
     </div>
-
-
   </body>
-
 </html>
