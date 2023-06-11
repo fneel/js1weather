@@ -19,4 +19,8 @@ DONE
 - lufttryck
 - fuktighet
 - vind
+
+
+uppdatera bakgrund beroende på tid på dygnet:
+https://stackoverflow.com/questions/62681095/how-do-i-convert-weather-api-to-local-time-reactjs-javascript
 -->

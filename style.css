@@ -58,7 +58,7 @@ body {
 .weather h1{
     font-size: 80px;
     font-weight: 500;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
 }
 .weather h2{
@@ -66,6 +66,10 @@ body {
     font-weight: 400;
     margin-top: -10px;
     margin-bottom: 4rem;
+}
+.weather p{
+    font-size: 36px;
+    
 }
 .details{
     display: flex;

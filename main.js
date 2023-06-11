@@ -4,10 +4,19 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector (".weather-icon");
 
+// const getLocation = () => {
+//   navigator.geolocation.watchPosition(async(pos) => {
+//     var lat = pos.coords.latitude;
+//     var long = pos.coords.longitude;
+//     const url = 
+//   })
+// }
+
 // function getWeather() {
 
 
 // }
+
 
 async function checkWeather(city){
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -26,6 +35,7 @@ async function checkWeather(city){
     document.querySelector(".wind").innerHTML = data.wind.speed + " m/s";
     document.querySelector(".pressure").innerHTML = data.main.pressure + " hPa";
 
+
     if (data.weather[0].main == "Clouds") {
       weatherIcon.src = "images/clouds.png";
     } else if (data.weather[0].main == "Clear") {
@@ -42,7 +52,19 @@ async function checkWeather(city){
 
     document.querySelector(".weather").style.display ="block";
     document.querySelector(".error").style.display = "none";
+
+
 }
+document.querySelector(".time").innerHTML = data.dt;
+let unixTimestamp = 1686507166;
+let date = new Date(unixTimestamp * 1000);
+var hours = date.getHours();
+var minutes = "0" + date.getMinutes();
+var seconds = "0" + date.getSeconds();
+
+var formattedTime = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+
+console.log(formattedTime);
 }
 
 
