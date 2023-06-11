@@ -67,9 +67,14 @@ body {
     margin-top: -10px;
     margin-bottom: 4rem;
 }
-.weather p{
+/* .weather p{
     font-size: 36px;
+    display: block;
     
+}  */
+.time, .date{
+    font-size: 36px;
+    display: block;
 }
 .details{
     display: flex;
