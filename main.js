@@ -2,8 +2,7 @@ const apiKey = "31a7151816c0150e0921f976ce9d8af9";
 const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
-const weatherIcon = document.querySelector (".weather-icon");
-
+const weatherIcon = document.querySelector(".weather-icon");
 
 
 async function checkWeather(city){
