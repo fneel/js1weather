@@ -41,18 +41,11 @@ async function checkWeather(city){
       document.querySelector(".weather").style.display = "block";
       document.querySelector(".error").style.display = "none";
 
-
       //det här FUNGERAR iallafall
       // const d = new Date();
       // let text = d.toDateString();
       // document.getElementsByClassName("time").innerHTML = text;
       // document.querySelector(".time").innerHTML = d;
-
-      console.log(data);
-    }
-}
-
-      // Här antar vi att du redan har hämtat stadsinformationen från OpenWeatherMap API och har en variabel som heter 'city' som innehåller stadens namn.
 
       // Hämta element från DOM för att visa tid och datum
       const city = document.getElementById("city");
@@ -64,7 +57,7 @@ async function checkWeather(city){
         // Hämta aktuell tid för den valda staden
         const currentCityTime = new Date().toLocaleTimeString("sv-SE", {
           timeZone: "Europe/Stockholm",
-        }); // Byt 'Europe/Stockholm' till rätt tidszon för den valda staden
+        });
 
         // Hämta aktuellt datum
         const currentDate = new Date().toLocaleDateString("sv-SE");
@@ -77,11 +70,27 @@ async function checkWeather(city){
       // Uppdatera tid och datum varje sekund
       setInterval(updateDateTime, 1000);
 
+      console.log(data);
+    }
+}
+
+
+      // Här antar vi att du redan har hämtat stadsinformationen från OpenWeatherMap API och har en variabel som heter 'city' som innehåller stadens namn.
+
+      // const city = {
+      //   name: 'Stockholm',
+      //   timezone: timezoneData,
+      // };
+
+
+
 searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
+
 
 })
 
 
 
 //fortsätt på (html div) "datum" 
+//testa setTimeout() på övriga värden
