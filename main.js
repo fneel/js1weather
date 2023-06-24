@@ -1,9 +1,9 @@
 const apiKey = "31a7151816c0150e0921f976ce9d8af9";
-const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const apiUrl =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
-
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -11,6 +11,7 @@ async function checkWeather(city) {
   if (response.status == 404) {
     document.querySelector(".error").style.display = "block";
     document.querySelector(".weather").style.display = "none";
+    //visa inte väder om sökningen resulterar i error
   } else {
     var data = await response.json();
 
@@ -45,52 +46,30 @@ async function checkWeather(city) {
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
 });
-
+//intervall utifrån sökt stad
 setInterval(() => {
   checkWeather(searchBox.value);
 }, 1 * 60 * 1000);
 
+// Hämta element från DOM för att visa tid och datum
+const city = document.getElementById("city");
+const timeElement = document.getElementById("time");
+const dateElement = document.getElementById("date");
 
-      // Hämta element från DOM för att visa tid och datum
-      const city = document.getElementById("city");
-      const timeElement = document.getElementById("time");
-      const dateElement = document.getElementById("date");
+// uppdatera tid och datum
+function updateDateTime() {
+  // hämta aktuell tid för den valda staden
+  const currentCityTime = new Date().toLocaleTimeString("sv-SE", {
+    timeZone: "Europe/Stockholm",
+  });
 
-      // Funktion för att uppdatera tid och datum
-      function updateDateTime() {
-        // Hämta aktuell tid för den valda staden
-        const currentCityTime = new Date().toLocaleTimeString("sv-SE", {
-          timeZone: "Europe/Stockholm",
-        });
+  // hämta aktuellt datum
+  const currentDate = new Date().toLocaleDateString("sv-SE");
 
-        // Hämta aktuellt datum
-        const currentDate = new Date().toLocaleDateString("sv-SE");
+  // Uppdatera tid och datum på sidan
+  timeElement.textContent = `Tid: ${currentCityTime}`;
+  dateElement.textContent = `Datum: ${currentDate}`;
+}
 
-        // Uppdatera tid och datum på sidan
-        timeElement.textContent = `Tid: ${currentCityTime}`;
-        dateElement.textContent = `Datum: ${currentDate}`;
-      }
-
-      // Uppdatera tid och datum varje sekund
-      setInterval(updateDateTime, 1000);
-
-
-      //det här FUNGERAR iallafall
-      // const d = new Date();
-      // let text = d.toDateString();
-      // document.getElementsByClassName("time").innerHTML = text;
-      // document.querySelector(".time").innerHTML = d;
-
-      // Här antar vi att du redan har hämtat stadsinformationen från OpenWeatherMap API och har en variabel som heter 'city' som innehåller stadens namn.
-
-      // const city = {
-      //   name: 'Stockholm',
-      //   timezone: timezoneData,
-      // };
-
-
-
-
-
-//fortsätt på (html div) "datum" 
-//testa setTimeout() på övriga värden
+// uppdatera tid och datum varje sekund
+setInterval(updateDateTime, 1000);
